@@ -3,13 +3,21 @@
   "version": "1.0.0",
   "description": "Interactive terminal theme changer — one command, any terminal",
   "type": "module",
+  "main": "./dist/cli.js",
   "bin": {
     "themer": "./dist/cli.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "start": "node dist/index.js"
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/12britz/themer.git"
   },
   "keywords": [
     "terminal",
@@ -19,10 +27,19 @@
     "gnome-terminal",
     "konsole",
     "macos",
-    "linux"
+    "linux",
+    "cli",
+    "color-scheme"
   ],
-  "author": "",
+  "author": "12britz",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/12britz/themer/issues"
+  },
+  "homepage": "https://github.com/12britz/themer#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@inquirer/prompts": "^5.0.0",
     "chalk": "^5.3.0",
