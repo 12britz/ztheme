@@ -120,19 +120,19 @@ async function applyByName(name: string) {
 
 function showHelp() {
   console.log(`
-${chalk.bold.cyan('themer')} - Interactive terminal theme changer
+${chalk.bold.cyan('ztheme')} - Interactive terminal theme changer
 
 ${chalk.bold('Usage:')}
-  themer                  Launch interactive mode
-  themer list             List all available themes
-  themer show <name>      Preview a specific theme
-  themer apply <name>     Apply a theme directly
-  themer help             Show this help message
+  ztheme                  Launch interactive mode
+  ztheme list             List all available themes
+  ztheme show <name>      Preview a specific theme
+  ztheme apply <name>     Apply a theme directly
+  ztheme help             Show this help message
 
 ${chalk.bold('Examples:')}
-  ${chalk.dim('themer list')}
-  ${chalk.dim('themer show dracula')}
-  ${chalk.dim('themer apply "tokyo night"')}
+  ${chalk.dim('ztheme list')}
+  ${chalk.dim('ztheme show dracula')}
+  ${chalk.dim('ztheme apply "tokyo night"')}
 `);
 }
 
@@ -159,7 +159,7 @@ async function main() {
 
   console.clear();
   console.log(chalk.bold.cyan('╔══════════════════════════════╗'));
-  console.log(chalk.bold.cyan('║        themer                ║'));
+  console.log(chalk.bold.cyan('║        ztheme               ║'));
   console.log(chalk.bold.cyan('╚══════════════════════════════╝'));
   console.log();
 

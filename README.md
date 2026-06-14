@@ -1,4 +1,4 @@
-# themer
+# ztheme
 
 Interactive terminal theme changer — one command, any terminal.
 
@@ -24,14 +24,14 @@ Interactive terminal theme changer — one command, any terminal.
 ## Installation
 
 ```bash
-npm install -g themer
+npm install -g ztheme
 ```
 
 Or link locally:
 
 ```bash
 git clone <repo>
-cd themer
+cd ztheme
 npm install
 npm link
 ```
@@ -41,7 +41,7 @@ npm link
 ### Interactive Mode
 
 ```bash
-themer
+ztheme
 ```
 
 Launches an interactive menu to browse and apply themes.
@@ -49,27 +49,27 @@ Launches an interactive menu to browse and apply themes.
 ### List Themes
 
 ```bash
-themer list
+ztheme list
 ```
 
 ### Preview a Theme
 
 ```bash
-themer show dracula
-themer show "tokyo night"
+ztheme show dracula
+ztheme show "tokyo night"
 ```
 
 ### Apply a Theme Directly
 
 ```bash
-themer apply dracula
-themer apply nord
+ztheme apply dracula
+ztheme apply nord
 ```
 
 ### Help
 
 ```bash
-themer help
+ztheme help
 ```
 
 ## Supported Themes

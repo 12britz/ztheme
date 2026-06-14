@@ -28,7 +28,7 @@ async function profileExists(name: string): Promise<boolean> {
 }
 
 export async function applyMacTerminal(theme: Theme): Promise<void> {
-  const profileName = `themer-${theme.name}`;
+  const profileName = `ztheme-${theme.name}`;
 
   if (!(await profileExists(profileName))) {
     const createScript = `

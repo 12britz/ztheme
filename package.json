@@ -1,11 +1,11 @@
 {
-  "name": "themer",
+  "name": "ztheme",
   "version": "1.0.0",
   "description": "Interactive terminal theme changer — one command, any terminal",
   "type": "module",
   "main": "./dist/cli.js",
   "bin": {
-    "themer": "./dist/cli.js"
+    "ztheme": "./dist/cli.js"
   },
   "files": [
     "dist"
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/12britz/themer.git"
+    "url": "https://github.com/12britz/ztheme.git"
   },
   "keywords": [
     "terminal",
@@ -34,9 +34,9 @@
   "author": "12britz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/12britz/themer/issues"
+    "url": "https://github.com/12britz/ztheme/issues"
   },
-  "homepage": "https://github.com/12britz/themer#readme",
+  "homepage": "https://github.com/12britz/ztheme#readme",
   "engines": {
     "node": ">=18.0.0"
   },

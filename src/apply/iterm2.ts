@@ -290,7 +290,7 @@ export async function applyIterm2(theme: Theme): Promise<void> {
     Profiles: [
       {
         Name: theme.name,
-        Guid: `com.themer.${dirName}`,
+        Guid: `com.ztheme.${dirName}`,
         'Dynamic Profile Parent Name': 'Default Profile',
         Colors: {
           'Ansi 0 Color': colorToItermHex(theme.colors.black),
