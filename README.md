@@ -2,6 +2,8 @@
 
 Interactive terminal theme changer — one command, any terminal.
 
+![ztheme demo](demo/demo.gif)
+
 ## Features
 
 - Interactive theme selection with color previews
