@@ -1,0 +1,35 @@
+{
+  "name": "themer",
+  "version": "1.0.0",
+  "description": "Interactive terminal theme changer — one command, any terminal",
+  "type": "module",
+  "bin": {
+    "themer": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "terminal",
+    "theme",
+    "colors",
+    "iterm2",
+    "gnome-terminal",
+    "konsole",
+    "macos",
+    "linux"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@inquirer/prompts": "^5.0.0",
+    "chalk": "^5.3.0",
+    "execa": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}
