@@ -1,5 +1,4 @@
-import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'fs';
-import { mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 import type { Theme } from '../themes/types.js';
 import { colorToHex } from '../themes/types.js';
@@ -78,15 +77,12 @@ export function applyShellProfile(theme: Theme, shell: ShellInfo): boolean {
     );
 
     let newContent: string;
-    let action: string;
 
     if (markerRegex.test(existing)) {
       newContent = existing.replace(markerRegex, block);
-      action = 'updated';
     } else {
       const trailingNewline = existing.endsWith('\n') ? '' : '\n';
       newContent = existing + trailingNewline + '\n' + block;
-      action = 'created';
     }
 
     const dir = dirname(shell.profilePath);
