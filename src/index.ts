@@ -1,4 +1,6 @@
 import { detectTerminal, type TerminalInfo } from './detect.js';
+import { detectShell } from './shell.js';
+import { applyShellProfile } from './apply/shell-profile.js';
 import { Theme, colorToHex } from './themes/types.js';
 import { allThemes } from './themes/index.js';
 import { applyMacTerminal } from './apply/mac-terminal.js';
@@ -47,6 +49,34 @@ function renderColorPreview(theme: Theme): string {
   return lines.join('\n');
 }
 
+async function applyToShellProfile(theme: Theme): Promise<void> {
+  const shell = detectShell();
+  if (shell.type === 'unknown') {
+    console.log(chalk.yellow('⚠ Could not detect shell type.'));
+    return;
+  }
+
+  console.log(`\nDetected shell: ${chalk.bold(shell.name)} (${shell.profilePath})`);
+
+  const shouldPersist = await confirm({
+    message: 'Persist these colors in your shell profile for new terminals?',
+    default: true,
+  });
+
+  if (!shouldPersist) {
+    console.log(chalk.dim('  Skipped.'));
+    return;
+  }
+
+  const ok = applyShellProfile(theme, shell);
+  if (ok) {
+    console.log(chalk.green(`✓ Theme written to ${shell.profilePath}`));
+    console.log(chalk.dim('  Open a new terminal to see the colors.'));
+  } else {
+    console.log(chalk.red(`✗ Failed to write to ${shell.profilePath}`));
+  }
+}
+
 async function applyTheme(theme: Theme, terminal: TerminalInfo): Promise<void> {
   console.log(`\nApplying ${chalk.bold(theme.name)} theme...\n`);
 
@@ -67,7 +97,7 @@ async function applyTheme(theme: Theme, terminal: TerminalInfo): Promise<void> {
       console.log(chalk.yellow('⚠ Direct theme application not supported for this terminal.'));
       console.log('Please manually apply the colors using the values below:\n');
       console.log(JSON.stringify(theme.colors, null, 2));
-      return;
+      break;
   }
 
   console.log(chalk.green(`✓ Theme "${theme.name}" applied successfully!`));
@@ -109,6 +139,11 @@ async function applyByName(name: string) {
   const terminal = detectTerminal();
   try {
     await applyTheme(theme, terminal);
+    const shell = detectShell();
+    if (shell.type !== 'unknown') {
+      applyShellProfile(theme, shell);
+      console.log(chalk.green(`✓ Theme persisted to ${shell.profilePath}`));
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.error(chalk.red(`\n✗ Error: ${error.message}`));
@@ -217,6 +252,8 @@ async function main() {
     }
     process.exit(1);
   }
+
+  await applyToShellProfile(selectedTheme);
 }
 
 main().catch((error) => {
