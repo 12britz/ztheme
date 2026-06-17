@@ -4,9 +4,12 @@ export interface Color {
   b: number;
 }
 
+export type ThemeCategory = 'popular' | 'classic' | 'light';
+
 export interface Theme {
   name: string;
   author?: string;
+  category: ThemeCategory;
   colors: {
     background: Color;
     foreground: Color;
